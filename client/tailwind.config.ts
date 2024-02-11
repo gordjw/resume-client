@@ -3,15 +3,15 @@ import type { Config } from 'tailwindcss'
 export default {
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    colors: {
-      'blue': '#1fb6ff',
-      'gray-dark': '#273444',
-    },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ['nunito', 'raleway', 'sans-serif'],
+      serif: ['aleo', 'Merriweather', 'serif'],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-background': "url('/images/bg-1.jpg')",
+      }
+    },
   },
   plugins: [],
 } satisfies Config

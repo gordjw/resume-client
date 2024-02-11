@@ -24,11 +24,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <h1 className="text-3xl font-bold">
-          Hello world!
-        </h1>
-
+      <body className="font-sans">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
