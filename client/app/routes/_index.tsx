@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <>
-      <div className="bg-gradient-to-br from-sky-500 to-indigo-500 min-h-svh">
+      <div className="min-h-svh">
         <Nav />
         <Main>
           <Hero />

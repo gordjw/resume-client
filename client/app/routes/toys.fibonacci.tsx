@@ -1,6 +1,7 @@
 import type { ClientLoaderFunctionArgs } from "@remix-run/react";
 import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { ShowcaseTitle } from "~/components/showcase/showcase-title";
 
 export const meta: MetaFunction = () => {
     return [
@@ -38,7 +39,7 @@ export default function Index() {
     console.log(data)
     return (
         <>
-            <h2>Fibonacci calculator</h2>
+            {/* <ShowcaseTitle title="Fibonacci calculator" /> */}
 
             <p id="results">Fibonacci({data.n}) = {data.fib}</p>
 
@@ -76,7 +77,7 @@ class Fibonacci {
         for( let i = 2; i < n; i++ ) {
             this.fs[i] = this.fs[i-1] + this.fs[i-2]
             console.log(`${i} = ${this.fs[i]}`)
-            await sleep(1000)
+            // await sleep(1000)
         }
         return this.fs[this.fs.length-1]
     }

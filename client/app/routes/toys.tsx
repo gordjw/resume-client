@@ -1,8 +1,7 @@
 import { Main } from "~/components/main";
 import { Nav } from "~/components/nav";
 import { MetaFunction, json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import { Toy } from "~/components/toy";
+import { Outlet, useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,37 +10,13 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({ params, }: LoaderFunctionArgs) {
-  return json([{
-    "name": "Starfield",
-    "type": "Javascript",
-    "description": "",
-    "url": "starfield"
-  },
-  {
-    "name": "Fibonacci calculator",
-    "type": "Algorithm",
-    "description": "",
-    "url": "fibonacci"
-  },
-  ])
-}
-
-
 export default function Index() {
-  const toys = useLoaderData<typeof loader>();
-
-
   return (
-    <div className="bg-gradient-to-br from-sky-500 to-indigo-500 min-h-svh">
+    <div className="min-h-svh">
       <Nav />
       <Main>
-        <h1>Toys</h1>
-        {
-          toys.map(toy => {
-            return (<Toy toy={toy} />)
-          })
-        }
+        <h1 className="col-span-full font-serif text-2xl">Toys</h1>
+        <Outlet />
       </Main>
     </div>
   );

@@ -35,10 +35,10 @@ export default function Index() {
   const products = useLoaderData<typeof loader>();
 
   return (
-    <div className="bg-gradient-to-br from-sky-500 to-indigo-500 min-h-svh">
+    <div className="min-h-svh">
       <Nav />
       <Main>
-
+        <h1 className="col-span-full font-serif text-2xl">Teams I've worked with</h1>
         {
           products.map(product => {
             return (<Product product={product} />)
