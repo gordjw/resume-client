@@ -11,12 +11,26 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({ params, }: LoaderFunctionArgs) {
-    return json({ "client": params.client });
+    const host = "http://localhost:8090"
+    const endpoint = `/api/roles/${params.client}`
+
+    const response = await fetch(host + endpoint, {
+        method: "GET",
+        mode: "cors",
+    })
+    console.log(response)
+    const role = await response.json()
+
+    return role
 }
 
 export default function Index() {
-    const data = useLoaderData<typeof loader>();
+    const role = useLoaderData<typeof loader>();
+
     return (
-        <h2>Client - {data.client}</h2>
+        <div>
+            <h2>{role.title}</h2>
+            <h3>{role.client}</h3>
+        </div>
     );
 }

@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 
 import { Main } from "~/components/main";
 import { Nav } from "~/components/nav";
@@ -39,12 +39,7 @@ export default function Index() {
       <Nav />
       <Main>
         <h1 className="col-span-full font-serif text-2xl">Teams I've worked with</h1>
-        {
-          products.map(product => {
-            return (<Product product={product} />)
-          })
-        }
-
+        <Outlet />
       </Main>
     </div>
   );

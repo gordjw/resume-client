@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react"
 
-export function Toy({ toy }: any) {
+export default function Toy({ toy }: any) {
     return (
         <div className="col-span-2 p-6 rounded shadow-lg">
             <h1 className="font-serif text-xl ">{toy.name}</h1>
